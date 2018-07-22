@@ -8,6 +8,10 @@ import {
 } from 'react-native'
 
 export default class FirstTabScreen extends Component {
+    static navigatorStyle = {
+        drawUnderNavBar: false,
+        navBarTranslucent: false
+      }
     render() {
         return (
             <View>
@@ -23,11 +27,14 @@ export default class FirstTabScreen extends Component {
                     //         tapBackgroundToDismiss: false // dismisses LightBox on background taps (optional)
                     //       }
                     // })
-                     this.props.navigator.push({
-                         screen: 'navigation.PushedScreen',
-                         title: 'Pushed Screen',
-                         animationType: 'slide-horizontal'
-                     })
+                    this.props.navigator.push({
+                        screen: 'navigation.PushedScreen',
+                        title: 'Pushed Screen',
+                        animationType: 'slide-horizontal',
+                        passProps: {
+                            info: '123211'
+                        }
+                    })
                 }} title="跳转" />
             </View>
         )
